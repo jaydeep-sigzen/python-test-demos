@@ -1,0 +1,4 @@
+#How Do You Check The Presence Of A Key In A Dictionary?
+=>Using the Inbuilt method keys() method returns a list of all the available keys in the dictionary.
+  With the Inbuilt method keys(), use if statement with 'in' operator to check if the key is present in
+  the dictionary or not.

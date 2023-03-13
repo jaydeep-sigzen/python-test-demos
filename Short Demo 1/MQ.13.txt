@@ -1,0 +1,6 @@
+#What are negative index and why are they used?
+=>negative index means the indexing starts from the end of the iterable.exm[-1,-2]
+ =>negative indexing use as your advantage whet to pick values from the end of a iterable.
+
+
+

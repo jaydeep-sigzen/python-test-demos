@@ -1,0 +1,194 @@
+{% extends 'seller_header.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__option">
+            <div class="offcanvas__links">
+                <a href="#">Sign in</a>
+                <a href="#">FAQs</a>
+            </div>
+            <div class="offcanvas__top__hover">
+                <span>Usd <i class="arrow_carrot-down"></i></span>
+                <ul>
+                    <li>USD</li>
+                    <li>EUR</li>
+                    <li>USD</li>
+                </ul>
+            </div>
+        </div>
+        <div class="offcanvas__nav__option">
+            <a href="#" class="search-switch"><img src="{% static 'img/icon/search.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'img/icon/heart.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'img/icon/cart.png' %}" alt=""> <span>0</span></a>
+            <div class="price">$0.00</div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__text">
+            <p>Free shipping, 30-day return or refund guarantee.</p>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+   
+    <!-- Header Section End -->
+
+    
+
+    <!-- Contact Section Begin -->
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-6">
+                    <div class="contact__text">
+                        <div class="section-title">
+                        <center>
+                            <h2>Seller Edit Product</h2>
+                        </center>
+                            
+                        </div>
+                        <ul>
+                            
+                           
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="contact__form">
+                        {% if msg %}
+                            <b style="color:blue">{{msg}}</b>
+                        {% endif %} 
+                        <form action="{% url 'edit-product' pk=product.pk %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+<center>
+  <div class="row">
+
+                                <div class="">
+                                    <div class="row" style="width: 700px; margin: 50px 40px;">
+                                        <select class="col-lg-12"  name="product_category">
+                                            {% if product.product_category == "Male" %}
+                                                <option>--- Select Category---</option>
+                                                <option value="Male" selected>Male</option>
+                                                <option value="Female">Female</option>
+                                            {% elif product.product_category == "Female" %}
+                                                <option>--- Select Category---</option>
+                                                <option value="Male" >Male</option>
+                                                <option value="Female" selected>Female</option>
+                                            {% else %}
+                                                <option>--- Select Category---</option>
+                                                <option value="Male" >Male</option>
+                                                <option value="Female" >Female</option>
+                                            {% endif %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> 
+
+</center>
+                             <div class="">
+                                    <div class="row" style="width: 700px; margin: 50px 40px;">
+                                        <select class="col-lg-12"  name="product_size">
+                                            {% if product.product_size == "M" %}
+                                                <option>--- Select Size---</option>
+                                                <option value="M" selected >M</option>
+                                                <option value="S">S</option>
+                                                <option value="XL">XL</option>
+                                                <option value="L">L</option>
+                                                <option value="2XL">2XL</option>
+                                            {% elif product.product_size == "S" %}
+                                             <option>--- Select Size---</option>
+                                                <option value="M">M</option>
+                                                <option value="S" selected>S</option>
+                                                <option value="XL">XL</option>
+                                                <option value="L">L</option>
+                                                <option value="2XL">2XL</option>
+                                            {% elif product.product_size == "XL" %}
+                                             <option>--- Select Size---</option>
+                                                <option value="M">M</option>
+                                                <option value="S">S</option>
+                                                <option value="XL" selected>XL</option>
+                                                <option value="L">L</option>
+                                                <option value="2XL">2XL</option>
+                                            {% elif product.product_size == "L" %}
+                                             <option>--- Select Size---</option>
+                                                <option value="M">M</option>
+                                                <option value="S">S</option>
+                                                <option value="XL">XL</option>
+                                                <option value="L" selected>L</option>
+                                                <option value="2XL">2XL</option>
+                                            {% elif product.product_size == "2XL" %}
+                                                <option>--- Select Size---</option>
+                                                <option value="M">M</option>
+                                                <option value="S">S</option>
+                                                <option value="XL">XL</option>
+                                                <option value="L">L</option>
+                                                <option value="2XL"selected>2XL</option>
+                                             {% else %}
+                                             <option>--- Select Size---</option>
+                                                <option value="M">M</option>
+                                                <option value="S">S</option>
+                                                <option value="XL">XL</option>
+                                                <option value="L" >L</option>
+                                                <option value="2XL">2XL</option> 
+                                              {% endif %}    
+                                        </select>
+                                    </div>
+                                </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input type="text" name="product_name" value="{{product.product_name}}" placeholder="Enter Your Product Name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="text"  name="product_price" value="{{product.product_price}}"placeholder="Enter Your Product Price">
+                                </div>
+                               
+                                <div class="col-lg-12">
+                                    <textarea name="product_dese" placeholder="Enter Description">{{product.product_dese}}</textarea>
+                                </div>
+                               
+                                <div class="col-lg-12 text-center">
+                                    <img src="{{product.product_pic.url}}" height="100px" width="100px">
+                                    <input type="file" name="product_pic">
+                                    <button type="submit" class="site-btn" >Edit Product</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+    
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+
+    <!-- Js Plugins -->
+  
+</body>
+
+</html>
+{% endblock %}

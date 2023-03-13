@@ -1,0 +1,3 @@
+ Why Do You Use the Zip () Method in Python?
+=> It is used to map the similar index of multiple containers so
+   that they can be used just using a single entity.

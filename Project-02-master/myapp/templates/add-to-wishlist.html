@@ -1,0 +1,83 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>   
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__option">
+            <div class="offcanvas__links">
+                <a href="#">Sign in</a>
+                <a href="#">FAQs</a>
+            </div>
+            <div class="offcanvas__top__hover">
+                <span>Usd <i class="arrow_carrot-down"></i></span>
+                <ul>
+                    <li>USD</li>
+                    <li>EUR</li>
+                    <li>USD</li>
+                </ul>
+            </div>
+        </div>
+        <div class="offcanvas__nav__option">
+            <a href="#" class="search-switch"><img src="{% static 'img/icon/search.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'img/icon/heart.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'img/icon/cart.png' %}" alt=""> <span>0</span></a>
+            <div class="price">$0.00</div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__text">
+            <p>Free shipping, 30-day return or refund guarantee.</p>
+        </div>
+    </div>
+    <section class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4>Wishlist</h4>             
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            {% for i in wishlist %}
+                            <div class="product__item">
+                             <img src="{{i.product.product_pic.url}}">  
+                                <div class="product__item__text">
+                                    <h5>{{i.product.product_name}}</h5>
+                                    <h5>{{i.product.product_price}}</h5>
+                                    <h5>{{i.product.product_size}}</h5>
+                                    <h5>{{i.product.product_category}}</h5>
+                                    <h5>{{i.product.product_dese}}</h5>
+                                   </div>
+                                <div>
+                                     <a href="{% url 'remove-to-wishlist' pk=i.product.pk %}" class="btn btn-danger">
+                                    <input type="button" name="remove-to-wishlist" value="Remove To Wishlist"></a>
+                                </div> 
+                            </div>
+                            {% endfor %} 
+                        </div>
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock%}

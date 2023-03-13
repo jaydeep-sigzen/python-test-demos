@@ -1,0 +1,81 @@
+{% extends 'seller_header.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>   
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+     {% if msg %}
+        <b style="color:blue;" >{{msg}}</b>
+     {% endif %}
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__option">
+            <div class="offcanvas__links">
+                <a href="#">Sign in</a>
+                <a href="#">FAQs</a>
+            </div>
+            <div class="offcanvas__top__hover">
+                <span>Usd <i class="arrow_carrot-down"></i></span>
+                <ul>
+                    <li>USD</li>
+                    <li>EUR</li>
+                    <li>USD</li>
+                </ul>
+            </div>
+        </div>
+        <div class="offcanvas__nav__option">
+            <a href="#" class="search-switch"><img src="{% static 'img/icon/search.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'img/icon/heart.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'img/icon/cart.png' %}" alt=""> <span>0</span></a>
+            <div class="price">$0.00</div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__text">
+            <p>Free shipping, 30-day return or refund guarantee.</p>
+        </div>
+    </div>
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+                <div>
+                    <div class="contact__form">
+                        
+                        <form method="post" action="{% url 'contact' %}" class="col-lg-6 col-md-6">
+                            {% csrf_token %}
+                            {% for  i in contact %}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="Name" name="name" value="{{i.contact_name}}">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="Email" name="email" value="{{i.contact_email}}">
+                                </div>
+                                <div class="col-lg-12">
+                                    <textarea placeholder="Message" name="message">{{i.contact_message}}</textarea>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </form>
+                    </div>
+    <!-- Js Plugins -->
+  
+</body>
+
+</html>
+{% endblock %}

@@ -1,0 +1,18 @@
+#What is tuple? Difference between list and tuple.
+->Tuple
+     tuple can store multiple items in a single variable and can be declared using parentheses.
+#difference between list and tuple
+              List                              tuple
+        1.List are mutable.             1.Tuples are immutable.
+        2.Iteration in lists            2.Iteration in tuples is faster
+          is time consuming.           
+        3.Lists are better for          3.Tuples are appropriate fors
+         insertion and deletion         accessing the element
+         operations
+        4.Lists consume more            4.Tuples consume lesser memory
+          memory
+        5.Lists have several            5.Tuples have comparatively lesser
+          built-in methods                 built-in methods.
+        6.Creating a list is            6.Creating a tuple is faster than creating 
+         slower because two memory        a list.
+         blocks need to be accessed.

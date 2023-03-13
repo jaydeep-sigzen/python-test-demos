@@ -1,0 +1,11 @@
+#Differentiate between append () and extend () methods?
+->Append()=append object at end.
+ Ex. x =[1,2,3]
+     x.append([4,5])
+     print(x)
+     gives you:[1,2,3,[4,5]]
+->Extend()=Extends list by appending elements from the iterable.
+ Ex. x =[1,2,3]
+     x.extend([4,5])
+     print(x)
+     gives you:[1,2,3,4,5]

@@ -1,0 +1,4 @@
+#What is List? How will you reverse a list?
+->List is group of different type of data.List used to store multiple items in a single variable.
+
+->In python a in-built function called reverse() is used to reverse the list.

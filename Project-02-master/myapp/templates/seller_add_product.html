@@ -1,0 +1,152 @@
+{% extends 'seller_header.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__option">
+            <div class="offcanvas__links">
+                <a href="#">Sign in</a>
+                <a href="#">FAQs</a>
+            </div>
+            <div class="offcanvas__top__hover">
+                <span>Usd <i class="arrow_carrot-down"></i></span>
+                <ul>
+                    <li>USD</li>
+                    <li>EUR</li>
+                    <li>USD</li>
+                </ul>
+            </div>
+        </div>
+        <div class="offcanvas__nav__option">
+            <a href="#" class="search-switch"><img src="{% static 'img/icon/search.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'img/icon/heart.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'img/icon/cart.png' %}" alt=""> <span>0</span></a>
+            <div class="price">$0.00</div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__text">
+            <p>Free shipping, 30-day return or refund guarantee.</p>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+   
+    <!-- Header Section End -->
+
+    
+
+    <!-- Contact Section Begin -->
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-6">
+                    <div class="contact__text">
+                        <div class="section-title">
+                        <center>
+                            <h2>Seller Add Product</h2>
+                        </center>
+                            
+                        </div>
+                        <ul>
+                            
+                           
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="contact__form">
+                        {% if msg %}
+                            <b style="color:blue">{{msg}}</b>
+                        {% endif %} 
+                        <form action="{% url 'add-product' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+<center>
+  <div class="row">
+                                <div class="">
+                                    <div class="row" style="width: 700px; margin: 50px 40px;">
+                                        <select class="col-lg-12"  name="product_category">
+                                            <option>--- Select Category---</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> 
+
+</center>
+                             <div class="">
+                                    <div class="row" style="width: 700px; margin: 50px 40px;">
+                                        <select class="col-lg-12"  name="product_size">
+                                            <option>--- Select Size---</option>
+                                            <option value="M">M</option>
+                                            <option value="S">S</option>
+                                            <option value="XL">XL</option>
+                                            <option value="L">L</option>
+                                            <option value="2XL">2XL</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input type="text" name="product_name" placeholder="Enter Your Product Name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="text"  name="product_price" placeholder="Enter Your Product Price">
+                                </div>
+                               
+                                <div class="col-lg-12">
+                                    <textarea name="product_desc" placeholder="Enter Description"></textarea>
+                                </div>
+                               
+                                <div class="col-lg-12 text-center">
+                                    <input type="file" name="product_pic">
+                                    <button type="submit" class="site-btn" >Add Product</button>
+                                </div>
+                                
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+    
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+
+    <!-- Js Plugins -->
+  
+</body>
+
+</html>
+{% endblock %}

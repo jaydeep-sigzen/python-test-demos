@@ -1,0 +1,7 @@
+#How will you compare two lists?
+->Sort()method with the ==operator compare two list
+ Sort().
+     sort() is used to sort the input lists with a purpose that if the two input lists are equal,
+     then the elements would reside at the same index positions.
+ ==operator.
+     the ==operator is used to comapare the list,element by element.
